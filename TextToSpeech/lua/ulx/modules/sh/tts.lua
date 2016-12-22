@@ -9,7 +9,7 @@ if ( CLIENT ) then
 		local text = ""
 		text = net.ReadString()
 
-		sound.PlayURL("http://www.voicerss.org/controls/speech.ashx?hl=en-us&c=mp3&rnd=1&src=" .. text, "mono", function(chan, num, str)
+		sound.PlayURL("http://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=" .. text ..  "&tl=en", "mono", function(chan, num, str)
 			-- body
 		end ) 
 	end ) 
@@ -21,7 +21,7 @@ function ulx.tts( calling_ply, text )
 
 		if text == "" then return end
 		
-		text = string.gsub( text, ' ', '+' ) 
+		text = string.gsub( text, ' ', '%20' ) 
 
 		net.Start("T2S") 
 			net.WriteString(text) 
