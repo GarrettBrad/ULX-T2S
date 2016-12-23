@@ -16,7 +16,8 @@ end
 function ulx.tts( calling_ply, text )                   
 	if calling_ply and calling_ply:IsValid() then
 		local str = ""
-
+		
+		text = string.Trim(text)
 		text = string.Explode(" ", text)
 
 		if text == {} or text[1] == "" then return end
