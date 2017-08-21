@@ -10,7 +10,7 @@ if ( CLIENT ) then
 		text = net.ReadString()
 
 		-- Play the sound from google's Text to Speech API (Developer API)
-		sound.PlayURL("http://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=" .. text .. "&tl=en", "mono", function(chan, num, str)	
+		sound.PlayURL("http://www.voicerss.org/controls/speech.ashx?hl=en-us&c=mp3&rnd=1&src=" .. text, "mono", function(chan, num, str)	
 			-- Just for the info ( not needed at all )
 			print(chann .. "\n" .. tostring(num) .. "\n" .. str)
 		end )
@@ -27,7 +27,7 @@ function ulx.tts( calling_ply, text )
 		if text == {} then return end -- If the table has no value then stop
 			
 		for k,v in pairs(text) do
-			str = str .. v .. "%20" -- EX: would convert "I like pie" to "I%29like%20pie" which the url has to be
+			str = str .. v .. "+" -- EX: would convert "I like pie" to "I+like+pie" which the url has to be
 		end
 
 		net.Start("T2S")
